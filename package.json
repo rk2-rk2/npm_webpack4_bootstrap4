@@ -1,0 +1,43 @@
+{
+  "name": "npm_webpack4_bootstrap4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "start:dev": "webpack-dev-server",
+    "start:prd": "set NODE_ENV=test&&webpack-dev-server --config webpack.config.js --mode production",
+    "build:dev": "webpack --config webpack.config.js",
+    "build:prd": "set NODE_ENV=test&&webpack --config webpack.config.js --mode production"
+  },
+  "author": "Tom Misawa <riversun.org@gmail.com> (https://github.com/riversun)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riversun/npm_webpack4_bootstrap4.git"
+  },
+  "bugs": {
+    "url": "https://github.com/riversun/npm_webpack4_bootstrap4/issues"
+  },
+  "homepage": "https://github.com/riversun/npm_webpack4_bootstrap4#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-loader": "^8.0.6",
+    "core-js": "^3.2.1",
+    "css-loader": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0"
+  }
+}
