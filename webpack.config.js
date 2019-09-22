@@ -22,8 +22,8 @@ module.exports = (env, argv) => {
         entry: {app: './src/index.js'},
         output: {
             path: path.join(__dirname, 'dist'),
-            publicPath: '/js/',
-            filename: argv.mode === 'production' ? `[name].js` : `[name].js`,  //`[name].min.js`
+            publicPath: '/',
+            filename: argv.mode === 'production' ? `js/[name].js` : `js/[name].js`,  //`[name].min.js`
         },
 
         optimization: {
@@ -119,7 +119,7 @@ module.exports = (env, argv) => {
                 'window.jQuery': 'jquery'
             }),
             new MiniCssExtractPlugin({
-                filename: argv.mode === 'production' ? `[name].css` : `[name].css`,  //`[name].min.js`
+                filename: argv.mode === 'production' ? `css/[name].css` : `css/[name].css`,  //`[name].min.js`
             }),
         ],
 
