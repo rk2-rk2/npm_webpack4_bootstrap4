@@ -2,6 +2,7 @@ const packageJson = require('./package.json');
 const version = packageJson.version;
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const AutoPrefixer = require('autoprefixer');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 
@@ -74,8 +75,24 @@ module.exports = (env, argv) => {
                                 hmr: process.env.NODE_ENV === 'development',
                             },
                         },
-                        'css-loader',
-                        'sass-loader',
+                        {
+                            loader: 'css-loader',
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: [
+                                    AutoPrefixer(
+                                        {
+                                            grid: 'autoplace'
+                                        },
+                                    ),
+                                ],
+                            },
+                        },
+                        {
+                            loader: 'sass-loader',
+                        }
                     ],
                 },
                 {
@@ -92,7 +109,6 @@ module.exports = (env, argv) => {
                     ]
                 },
             ],
-
         },
         resolve: {
             alias: {}
@@ -101,7 +117,7 @@ module.exports = (env, argv) => {
             new webpack.BannerPlugin(`[name] v${version} Copyright (c) 2019 Your Name`),
             new webpack.ProvidePlugin({
                 $: 'jquery',
-                jQuery: "jquery",
+                jQuery: 'jquery',
                 'window.jQuery': 'jquery'
             }),
             new MiniCssExtractPlugin({
